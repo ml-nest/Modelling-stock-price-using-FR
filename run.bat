@@ -1,7 +1,6 @@
 :: Running virtual environment and running jupyter notebook
 
 @echo off
-CALL python -m venv personal_nb
 CALL personal_nb\Scripts\activate
 CALL jupyter contrib nbextension install --sys-prefix
 echo 'Enabling jupyter extensions...'

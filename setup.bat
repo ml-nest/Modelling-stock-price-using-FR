@@ -1,5 +1,4 @@
 :: Script for setting up virtual environment and running jupyter notebook
-
 @echo off
 echo 'Creating virtual environment...'
 CALL python -m venv personal_nb
