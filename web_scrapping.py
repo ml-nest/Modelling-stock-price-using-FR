@@ -35,17 +35,22 @@ def results(temp, start_text, end_text):
     return val1, temp
 
 def func(html, find_text, breaker, headings_value):
-    headings = html.find(find_text)
+    position = html.find(find_text)
+    if position == -1:
+        headings = []
+        for i in range(len(headings_value)):
+            headings.append("")
+        temp = html[:]
+    else:
+        temp = html[position:]
+        temp = temp[temp.find("/"+breaker+">")+len("</"+breaker+">"):]
 
-    temp = html[headings:]
-    temp = temp[temp.find("/"+breaker+">")+len("</"+breaker+">"):]
+        start_text, end_text = "<"+breaker+">", "</"+breaker+">"
 
-    start_text, end_text = "<"+breaker+">", "</"+breaker+">"
-
-    headings = []
-    for i in range(len(headings_value)):
-        q, temp = results(temp, start_text, end_text)
-        headings.append(q)
+        headings = []
+        for i in range(len(headings_value)):
+            q, temp = results(temp, start_text, end_text)
+            headings.append(q)
     return headings, temp
 
 import numpy as np
