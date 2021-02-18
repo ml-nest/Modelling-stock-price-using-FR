@@ -1,4 +1,4 @@
-#This script contain all the functions required to pull values from the screener.in website.
+#This script contain all the functions required to pull values from the screener.in websitee
 
 
 def getting_headers(html, text1, text2):
